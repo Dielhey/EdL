@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center|top">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:text="FELICITATIONS !!"
+        android:gravity="center"
+        android:paddingTop="200sp"
+        android:paddingBottom="80sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnTable"
+        android:text="@string/btnCancel"
+        android:textSize="25sp"
+        android:layout_marginBottom="70sp"
+    />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGobackHome"
+        android:text="@string/btnHome"
+        android:textSize="25sp"/>
+
+</LinearLayout>

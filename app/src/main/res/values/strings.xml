@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Ecole des Loustics</string>
+    <string name="exercice5">Exercice 5</string>
+    <string name="btnConfirm">Valider</string>
+    <string name="btnRetour">Choisir un autre exercice</string>
+    <string name="number">Choisis ta table de multiplication</string>
+    <string name="corriger">CORRIGER</string>
+    <string name="btnCancel">CHOISIR UNE AUTRE TABLE</string>
+    <string name="errors">Nombre d\'erreurs :</string>
+    <string name="btnHome">Choisir un autre exercice</string>
+</resources>
