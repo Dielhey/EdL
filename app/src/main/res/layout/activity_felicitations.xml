@@ -11,13 +11,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="40sp"
-        android:text="FELICITATIONS !!"
+        android:text="EXERCICE FINI !"
         android:gravity="center"
         android:paddingTop="200sp"
-        android:paddingBottom="80sp"/>
+        />
+
+    <TextView
+        android:id="@+id/tvErrors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Votre score : 0/20"
+        android:gravity="center"
+        android:layout_marginBottom="80sp"
+        />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="300sp"
         android:layout_height="wrap_content"
         android:id="@+id/btnTable"
         android:text="@string/btnCancel"
@@ -25,7 +35,7 @@
         android:layout_marginBottom="70sp"
     />
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="300sp"
         android:layout_height="wrap_content"
         android:id="@+id/btnGobackHome"
         android:text="@string/btnHome"

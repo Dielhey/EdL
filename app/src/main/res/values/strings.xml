@@ -3,9 +3,12 @@
     <string name="exercice5">Exercice 5</string>
     <string name="btnConfirm">Valider</string>
     <string name="btnRetour">Choisir un autre exercice</string>
-    <string name="number">Choisis ta table de multiplication</string>
+    <string name="number">Choisis la difficulté</string>
     <string name="corriger">CORRIGER</string>
-    <string name="btnCancel">CHOISIR UNE AUTRE TABLE</string>
+    <string name="btnCancel">Réessayer</string>
     <string name="errors">Nombre d\'erreurs :</string>
-    <string name="btnHome">Choisir un autre exercice</string>
+    <string name="btnHome">Retour au menu</string>
+    <string name="previous">Précédent</string>
+    <string name="next">Suivant</string>
+    <string name="question_nb">Question 1/20</string>
 </resources>

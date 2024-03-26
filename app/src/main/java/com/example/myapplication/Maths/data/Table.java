@@ -3,7 +3,16 @@ package com.example.myapplication.Maths.data;
 import android.graphics.Path;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
 import java.util.Random;
 
 
@@ -11,8 +20,8 @@ public class Table {
     private int tableSize;
     private int correctAnswers;
     private char operator;
-    private ArrayList<Operation> operations = new ArrayList<Operation>();
-    private ArrayList<EditText> answers = new ArrayList<EditText>();
+    private List<Operation> operations = new ArrayList<>();
+    private HashMap<Integer, EditText> answers = new HashMap<>();
 
     public Table(char operator) {
         this.tableSize = 1;
@@ -26,10 +35,10 @@ public class Table {
     }
 
     private void generateTable() {
-        for (int i = 1; i < 21; i++) {
+        Random random = new Random();
+        for (int i = 0; i < 20; i++) {
+            operations.add(new Operation(random.nextInt(tableSize+1), random.nextInt(tableSize+1), operator));
 
-            Random random = new Random();
-            this.operations.add(new Operation(random.nextInt(tableSize) , random.nextInt(tableSize), operator));
         }
     }
 
@@ -48,7 +57,7 @@ public class Table {
         }
     }
 
-    public ArrayList<Operation> getOperations() {
+    public List<Operation> getOperations() {
         return operations;
     }
 
@@ -57,8 +66,12 @@ public class Table {
         return correctAnswers;
     }
 
-    public ArrayList<EditText> getAnswers() {
+    public HashMap<Integer, EditText> getAnswers() {
         return answers;
+    }
+
+    public int getTableSize(){
+        return tableSize;
     }
 }
 
