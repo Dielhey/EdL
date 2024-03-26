@@ -12,6 +12,9 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".ListUsersActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -24,9 +27,9 @@
             android:name=".AddUserActivity"
             android:exported="false" />
         <activity android:name=".Maths.Exercice5Activity" />
-        <activity android:name=".Maths.TableMathsActivity"/>
+        <activity android:name=".Maths.TableMathsActivity" />
         <activity android:name=".Maths.ErreurActivity" />
-        <activity android:name=".Maths.FelicitationActivity"/>
+        <activity android:name=".Maths.FelicitationActivity" />
     </application>
 
 </manifest>

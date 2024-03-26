@@ -8,7 +8,11 @@
     <string name="btnCancel">Réessayer</string>
     <string name="errors">Nombre d\'erreurs :</string>
     <string name="btnHome">Retour au menu</string>
+    <string name="add_user_btn">Ajouter un utilisateur</string>
+    <string name="input_prenom">Votre prénom</string>
+    <string name="input_nom">Votre nom</string>
     <string name="previous">Précédent</string>
     <string name="next">Suivant</string>
     <string name="question_nb">Question 1/20</string>
+    <string name="list_users">Voir les utilisateurs</string>
 </resources>
