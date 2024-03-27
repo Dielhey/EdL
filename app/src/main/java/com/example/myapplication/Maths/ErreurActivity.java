@@ -35,7 +35,7 @@ public class ErreurActivity extends AppCompatActivity {
         });
 
         btnCancel.setOnClickListener(view -> {
-            Intent intent = new Intent(ErreurActivity.this, Exercice5Activity.class);
+            Intent intent = new Intent(ErreurActivity.this, MathsActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         });

@@ -17,7 +17,6 @@ public class Operation {
         switch (operator) {
             case '+': this.answer = num1 + num2;break;
             case '-': this.answer = num1 - num2;break;
-            case '/': this.answer = num1 / num2;break;
             case '*': this.answer = num1 * num2;break;
         };
     }

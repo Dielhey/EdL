@@ -10,18 +10,38 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/exercice5"
-        android:onClick="onExercice5"/>
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:text="@string/title_addition"
+        android:onClick="onAddition"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_substraction"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:onClick="onSubstraction"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title_multiplication"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:onClick="onMultiplication"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/add_user_btn"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
         android:onClick="onAddUser"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/list_users"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
         android:onClick="onListUsers"/>
 </LinearLayout>

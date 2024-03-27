@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.myapplication.Maths.Exercice5Activity;
+import com.example.myapplication.Maths.MathsActivity;
 import com.example.myapplication.db.DatabaseClient;
 import com.example.myapplication.db.User;
 
@@ -21,32 +21,52 @@ public class MainActivity extends AppCompatActivity {
     public final static int ADD_USER_ACTIVITY_REQUEST = 5;
     public final static int LIST_USER_ACTIVITY_REQUEST = 6;
     private DatabaseClient mDb;
+    private Intent mathsIntent, userAddIntent, listUsersIntent;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mathsIntent = new Intent(this, MathsActivity.class);
+        userAddIntent = new Intent(this, AddUserActivity.class);
+        listUsersIntent = new Intent(this, ListUsersActivity.class);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mDb = DatabaseClient.getInstance(getApplicationContext());
+
     }
 
     public void onExercice5(View view) {
 
         // Création d'une intention
-        Intent intent = new Intent(this, Exercice5Activity.class);
+        Intent intent = new Intent(this, MathsActivity.class);
 
         // Lancement de la demande de changement d'activité avec attente de résultat par la méthode onActivityResult
         startActivityForResult(intent, EXERCICE_5_ACTIVITY_REQUEST);
     }
 
-    public void onAddUser(View view) {
-        Intent intent = new Intent(this, AddUserActivity.class);
+    public void onAddition(View view) {
+        mathsIntent.putExtra(MathsActivity.OPERATOR_KEY, '+');
+        startActivity(mathsIntent);
+    }
 
-        startActivityForResult(intent, ADD_USER_ACTIVITY_REQUEST);
+    public void onMultiplication(View view) {
+        mathsIntent.putExtra(MathsActivity.OPERATOR_KEY, '*');
+        startActivity(mathsIntent);
+    }
+    public void onSubstraction(View view) {
+        mathsIntent.putExtra(MathsActivity.OPERATOR_KEY, '-');
+        startActivity(mathsIntent);
+    }
+
+    public void onAddUser(View view) {
+        startActivity(userAddIntent);
     }
 
     public void onListUsers(View view) {
-        Intent intent = new Intent(this, ListUsersActivity.class);
-
-        startActivityForResult(intent, LIST_USER_ACTIVITY_REQUEST);
+        startActivity(listUsersIntent);
     }
 
     @Override

@@ -37,7 +37,7 @@ public class Table {
     private void generateTable() {
         Random random = new Random();
         for (int i = 0; i < 20; i++) {
-            operations.add(new Operation(random.nextInt(tableSize+1), random.nextInt(tableSize+1), operator));
+            operations.add(new Operation(random.nextInt(tableSize) + 1, random.nextInt(tableSize) + 1, operator));
 
         }
     }

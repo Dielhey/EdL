@@ -15,4 +15,10 @@
     <string name="next">Suivant</string>
     <string name="question_nb">Question 1/20</string>
     <string name="list_users">Voir les utilisateurs</string>
+    <string name="title_substraction">Exercice de soustraction</string>
+    <string name="title_addition">Exercice d\'addition</string>
+    <string name="title_multiplication">Exercice de multiplication</string>
+    <string name="level_1">Niveau 1</string>
+    <string name="level_2">Niveau 2</string>
+    <string name="level_3">Niveau 3</string>
 </resources>

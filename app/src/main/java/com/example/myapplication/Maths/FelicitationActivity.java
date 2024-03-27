@@ -40,7 +40,7 @@ public class FelicitationActivity extends AppCompatActivity {
             startActivity(intent);
         });
         btnTable.setOnClickListener(view -> {
-            Intent intent = new Intent(FelicitationActivity.this, Exercice5Activity.class);
+            Intent intent = new Intent(FelicitationActivity.this, MathsActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         });

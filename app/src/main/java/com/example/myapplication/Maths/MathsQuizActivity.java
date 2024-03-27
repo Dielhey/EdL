@@ -21,12 +21,12 @@ import com.example.myapplication.Maths.data.Table;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicReference;
 
 
-public class TableMathsActivity extends AppCompatActivity {
+public class MathsQuizActivity extends AppCompatActivity {
 
     public static final String NUMBER_KEY = "number_key";
+    public static final String OPERATOR_KEY = "operator_key";
 
     private int index = 0;
     private Table table;
@@ -39,11 +39,11 @@ public class TableMathsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_table_maths);
+        setContentView(R.layout.activity_maths_quiz);
 
         multiplications = findViewById(R.id.multiplications);
         //scroll = findViewById(R.id.scroll);
-        table = new Table(getIntent().getIntExtra(NUMBER_KEY, 1), '+');
+        table = new Table(getIntent().getIntExtra(NUMBER_KEY, 1), getIntent().getCharExtra(OPERATOR_KEY, '+'));
         btnPrevious = (Button) findViewById(R.id.btnPrevious);
         btnNext = findViewById(R.id.btnNext);
         tvNb = findViewById(R.id.tvNb);
@@ -56,8 +56,8 @@ public class TableMathsActivity extends AppCompatActivity {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(inputField, InputMethodManager.SHOW_IMPLICIT);
 
-        Intent intentLose  = new Intent(TableMathsActivity.this, ErreurActivity.class);
-        Intent intentWin  = new Intent(TableMathsActivity.this, FelicitationActivity.class);
+        Intent intentLose  = new Intent(MathsQuizActivity.this, ErreurActivity.class);
+        Intent intentWin  = new Intent(MathsQuizActivity.this, FelicitationActivity.class);
 
         ActivityResultLauncher<Intent> result = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),

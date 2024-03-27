@@ -26,8 +26,8 @@
         <activity
             android:name=".AddUserActivity"
             android:exported="false" />
-        <activity android:name=".Maths.Exercice5Activity" />
-        <activity android:name=".Maths.TableMathsActivity" />
+        <activity android:name=".Maths.MathsActivity" />
+        <activity android:name=".Maths.MathsQuizActivity" />
         <activity android:name=".Maths.ErreurActivity" />
         <activity android:name=".Maths.FelicitationActivity" />
     </application>
