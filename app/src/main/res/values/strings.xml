@@ -1,4 +1,5 @@
 <resources>
+    <string name="login_id_key">login id key</string>
     <string name="app_name">Ecole des Loustics</string>
     <string name="exercice5">Exercice 5</string>
     <string name="btnConfirm">Valider</string>
@@ -21,4 +22,5 @@
     <string name="level_1">Niveau 1</string>
     <string name="level_2">Niveau 2</string>
     <string name="level_3">Niveau 3</string>
+    <string name="loginMain">Se connecter</string>
 </resources>

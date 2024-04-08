@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
@@ -11,7 +12,7 @@ import android.widget.Toast;
 import com.example.myapplication.db.DatabaseClient;
 import com.example.myapplication.db.User;
 
-public class AddUserActivity extends AppCompatActivity {
+public class SignUpActivity extends EdLActivity {
 
 
     private String prenom, nom;
@@ -21,7 +22,7 @@ public class AddUserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_user);
+        setContentView(R.layout.activity_sign_up);
         mDb = DatabaseClient.getInstance(getApplicationContext());
         inputNom = findViewById(R.id.inputNom);
         inputPrenom = findViewById(R.id.inputPrenom);
@@ -38,11 +39,7 @@ public class AddUserActivity extends AppCompatActivity {
             @Override
             protected User doInBackground(Void... voids) {
                 if(nom.equals("") && prenom.equals("")) {
-                    try {
-                        throw new Exception("Vous devez écrire un nom et prénom !");
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
+                    return null;
                 }
                 User user = new User();
 
@@ -56,15 +53,20 @@ public class AddUserActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(User user) {
                 super.onPostExecute(user);
-
-                // Quand la tache est créée, on arrête l'activité AddTaskActivity (on l'enleve de la pile d'activités)
-                setResult(RESULT_OK);
-                finish();
-                Toast.makeText(getApplicationContext(), "Saved user " + String.valueOf(user.getId()), Toast.LENGTH_LONG).show();
+                if (user == null) {
+                    Toast.makeText(SignUpActivity.this, "Vous devez écrire un nom et prénom !", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                setLoginId(user.getId());
+                Toast.makeText(getApplicationContext(), "Ajout de l'utilisateur " + user, Toast.LENGTH_LONG).show();
+                signUp();
             }
         }
         SaveUser su = new SaveUser();
         su.execute();
-
+    }
+    public void signUp() {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 }

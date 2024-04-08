@@ -1,103 +1,119 @@
-package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.myapplication.Maths.MathsActivity;
 import com.example.myapplication.db.DatabaseClient;
 import com.example.myapplication.db.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends EdLActivity {
 
-
-    public final static int EXERCICE_5_ACTIVITY_REQUEST = 4;
-    public final static int ADD_USER_ACTIVITY_REQUEST = 5;
-    public final static int LIST_USER_ACTIVITY_REQUEST = 6;
+    // Data
+    User userChosen;
     private DatabaseClient mDb;
-    private Intent mathsIntent, userAddIntent, listUsersIntent;
+    private MainAdapter adapter;
+
+    // Views
+    ListView lvLogin;
+    Button btnGuest, btnSignUp;
 
     @Override
     protected void onStart() {
         super.onStart();
-        mathsIntent = new Intent(this, MathsActivity.class);
-        userAddIntent = new Intent(this, AddUserActivity.class);
-        listUsersIntent = new Intent(this, ListUsersActivity.class);
+
+        getUsers();
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mDb = DatabaseClient.getInstance(getApplicationContext());
+        adapter = new MainAdapter(this, new ArrayList<>());
+        btnGuest = findViewById(R.id.btnGuest);
+        btnSignUp = findViewById(R.id.btnSignUp);
+        lvLogin = findViewById(R.id.lvLogin);
+        lvLogin.setAdapter(adapter);
+
+        // Bouton dans l'adapter pour un clic plus joli
+//        lvLogin.setOnItemClickListener((parent, view, position, id) -> {
+//            userChosen = adapter.getItem(position);
+//            setLoginId(userChosen.getId());
+//            long loginId = getLoginId();
+//            User userFound = new User();
+//            getUserBy(loginId, userFound);
+//        });
+
+        btnGuest.setOnClickListener(v -> {
+            setLoginId(-1);
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        });
+
+        btnSignUp.setOnClickListener(v -> {
+            Intent intent = new Intent(this, SignUpActivity.class);
+            startActivity(intent);
+        });
 
     }
 
-    public void onExercice5(View view) {
-
-        // Création d'une intention
-        Intent intent = new Intent(this, MathsActivity.class);
-
-        // Lancement de la demande de changement d'activité avec attente de résultat par la méthode onActivityResult
-        startActivityForResult(intent, EXERCICE_5_ACTIVITY_REQUEST);
-    }
-
-    public void onAddition(View view) {
-        mathsIntent.putExtra(MathsActivity.OPERATOR_KEY, '+');
-        startActivity(mathsIntent);
-    }
-
-    public void onMultiplication(View view) {
-        mathsIntent.putExtra(MathsActivity.OPERATOR_KEY, '*');
-        startActivity(mathsIntent);
-    }
-    public void onSubstraction(View view) {
-        mathsIntent.putExtra(MathsActivity.OPERATOR_KEY, '-');
-        startActivity(mathsIntent);
-    }
-
-    public void onAddUser(View view) {
-        startActivity(userAddIntent);
-    }
-
-    public void onListUsers(View view) {
-        startActivity(listUsersIntent);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // Vérification du retour à l'aide du code requête
-       if (requestCode == EXERCICE_5_ACTIVITY_REQUEST) {
-
-            // Afficher une notification
-            String notification = "Retour exercice 5";
-            Toast.makeText(this, notification, Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void getUsers() {
+    private void getUsers() {
         class GetUsers extends AsyncTask<Void, Void, List<User>> {
+
             @Override
             protected List<User> doInBackground(Void... voids) {
-                List<User> userList = mDb.getAppDatabase().userDao().getAll();
+                List<User> userList = mDb.getAppDatabase()
+                        .userDao()
+                        .getAll();
                 return userList;
             }
 
             @Override
             protected void onPostExecute(List<User> users) {
                 super.onPostExecute(users);
+
+                adapter.clear();
+                adapter.addAll(users);
+
+                adapter.notifyDataSetChanged();
             }
-
-
         }
+
         GetUsers gu = new GetUsers();
         gu.execute();
     }
+
+    private void getUserBy(long id, User userFound) {
+        class GetUser extends AsyncTask<Void, Void, User> {
+
+            @Override
+            protected User doInBackground(Void... voids) {
+                User user = mDb.getAppDatabase()
+                        .userDao()
+                        .getById(id);
+                return user;
+            }
+
+            @Override
+            protected void onPostExecute(User user) {
+                super.onPostExecute(user);
+
+                userFound.setId(user.getId());
+                userFound.setNom(user.getNom());
+                userFound.setPrenom(user.getPrenom());
+            }
+        }
+
+        GetUser gu = new GetUser();
+        gu.execute();
+    }
+
+
 }

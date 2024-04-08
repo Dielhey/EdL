@@ -14,8 +14,8 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.EdLActivity;
 import com.example.myapplication.Maths.data.Operation;
 import com.example.myapplication.Maths.data.Table;
 import com.example.myapplication.R;
@@ -23,7 +23,7 @@ import com.example.myapplication.R;
 import java.util.ArrayList;
 
 
-public class MathsQuizActivity extends AppCompatActivity {
+public class MathsQuizActivity extends EdLActivity {
 
     public static final String NUMBER_KEY = "number_key";
     public static final String OPERATOR_KEY = "operator_key";

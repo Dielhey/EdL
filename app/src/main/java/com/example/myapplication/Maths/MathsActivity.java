@@ -4,18 +4,17 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.EdLActivity;
 import com.example.myapplication.R;
 
-public class MathsActivity extends AppCompatActivity {
+public class MathsActivity extends EdLActivity {
 
 
     public static final String OPERATOR_KEY = "operator_key";

@@ -9,8 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
-
-import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 public class FelicitationActivity extends AppCompatActivity {

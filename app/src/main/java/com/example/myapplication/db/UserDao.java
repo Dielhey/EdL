@@ -12,8 +12,11 @@ import java.util.List;
 @Dao
 public interface UserDao {
 
-    @Query("select * FROM users")
+    @Query("SELECT * FROM users")
     List<User> getAll();
+
+    @Query("SELECT * FROM users WHERE id = :id LIMIT 1")
+    User getById(long id);
 
     @Insert
     long insert(User user);

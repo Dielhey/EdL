@@ -3,42 +3,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center|top">
-
-
-
-    <TextView
+    >
+    <include layout="@layout/template_nav_bar"/>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text="EXERCICE FINI !"
-        android:gravity="center"
-        android:paddingTop="200sp"
-        />
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center|top"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            android:text="EXERCICE FINI !"
+            android:gravity="center"
+            android:paddingTop="200sp"
+            />
 
-    <TextView
-        android:id="@+id/tvErrors"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="Votre score : 0/20"
-        android:gravity="center"
-        android:layout_marginBottom="80sp"
-        />
+        <TextView
+            android:id="@+id/tvErrors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Votre score : 0/20"
+            android:gravity="center"
+            android:layout_marginBottom="80sp"
+            />
 
-    <Button
-        android:layout_width="300sp"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnTable"
-        android:text="@string/btnCancel"
-        android:textSize="25sp"
-        android:layout_marginBottom="70sp"
-    />
-    <Button
-        android:layout_width="300sp"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnGobackHome"
-        android:text="@string/btnHome"
-        android:textSize="25sp"/>
+        <Button
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnTable"
+            android:text="@string/btnCancel"
+            android:textSize="25sp"
+            android:layout_marginBottom="70sp"
+            />
+        <Button
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnGobackHome"
+            android:text="@string/btnHome"
+            android:textSize="25sp"/>
+
+    </LinearLayout>
+
+
+
 
 </LinearLayout>

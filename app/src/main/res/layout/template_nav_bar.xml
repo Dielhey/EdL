@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="0dip"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_weight="0.1"
+    tools:context=".EdLActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@color/navBar"
+        android:paddingEnd="20dp"
+        android:paddingStart="15dp">
+
+        <TextView
+            android:id="@+id/tvGoHome"
+            android:paddingStart="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EdL"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            />
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp"
+            android:backgroundTint="@color/buttons"
+            android:text="login"
+            android:textSize="13sp"
+            />
+    </LinearLayout>
+</RelativeLayout>

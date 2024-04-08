@@ -3,37 +3,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center|top">
+    >
 
-    <TextView
+    <include layout="@layout/template_nav_bar"/>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text="ERREUR(S) !!"
-        android:gravity="center"
-        android:paddingTop="300sp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/errors"
-        android:text="@string/errors"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:paddingBottom="120sp"
-        />
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center|top"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            android:text="ERREUR(S) !!"
+            android:gravity="center"
+            android:paddingTop="300sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/errors"
+            android:text="@string/errors"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:paddingBottom="120sp"
+            />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnAgain"
-        android:text="@string/corriger"
-        android:textSize="25sp"
-        />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnCancel"
-        android:text="@string/btnCancel"
-        android:textSize="25sp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAgain"
+            android:text="@string/corriger"
+            android:textSize="25sp"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCancel"
+            android:text="@string/btnCancel"
+            android:textSize="25sp"/>
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -9,5 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#FF888888</color>
     <color name="light_gray">#FFDDDDDD</color>
-    <color name="red">#FFFF0000</color>
+    <color name="navBar">#782B14</color>
+    <color name="buttons">#212A5A</color>
+    <color name="red">#FF0000</color>
 </resources>

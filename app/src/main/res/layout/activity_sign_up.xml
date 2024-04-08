@@ -6,20 +6,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".AddUserActivity">
+    android:padding="20dp"
+    tools:context=".SignUpActivity">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/input_nom"
-        android:id="@+id/inputNom"
-        />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/input_prenom"
         android:id="@+id/inputPrenom"
+        android:selectAllOnFocus="true"
         />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/input_nom"
+        android:id="@+id/inputNom"
+        android:selectAllOnFocus="true"
+        />
+
     <Button
         android:id="@+id/btnAddUser"
         android:layout_width="wrap_content"
