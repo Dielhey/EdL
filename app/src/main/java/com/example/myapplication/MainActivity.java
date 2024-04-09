@@ -51,12 +51,14 @@ public class MainActivity extends EdLActivity {
 //            getUserBy(loginId, userFound);
 //        });
 
+        // Pour les invités
         btnGuest.setOnClickListener(v -> {
             setLoginId(-1);
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
         });
 
+        //Pour s'inscrire
         btnSignUp.setOnClickListener(v -> {
             Intent intent = new Intent(this, SignUpActivity.class);
             startActivity(intent);
@@ -64,6 +66,7 @@ public class MainActivity extends EdLActivity {
 
     }
 
+    // Pour obtenir la liste des utilisateur
     private void getUsers() {
         class GetUsers extends AsyncTask<Void, Void, List<User>> {
 
@@ -75,6 +78,7 @@ public class MainActivity extends EdLActivity {
                 return userList;
             }
 
+            // Rajoute la liste des utilisateurs dans l'adapter
             @Override
             protected void onPostExecute(List<User> users) {
                 super.onPostExecute(users);
@@ -90,30 +94,31 @@ public class MainActivity extends EdLActivity {
         gu.execute();
     }
 
-    private void getUserBy(long id, User userFound) {
-        class GetUser extends AsyncTask<Void, Void, User> {
-
-            @Override
-            protected User doInBackground(Void... voids) {
-                User user = mDb.getAppDatabase()
-                        .userDao()
-                        .getById(id);
-                return user;
-            }
-
-            @Override
-            protected void onPostExecute(User user) {
-                super.onPostExecute(user);
-
-                userFound.setId(user.getId());
-                userFound.setNom(user.getNom());
-                userFound.setPrenom(user.getPrenom());
-            }
-        }
-
-        GetUser gu = new GetUser();
-        gu.execute();
-    }
+//
+//    private void getUserBy(long id, User userFound) {
+//        class GetUser extends AsyncTask<Void, Void, User> {
+//
+//            @Override
+//            protected User doInBackground(Void... voids) {
+//                User user = mDb.getAppDatabase()
+//                        .userDao()
+//                        .getById(id);
+//                return user;
+//            }
+//
+//            @Override
+//            protected void onPostExecute(User user) {
+//                super.onPostExecute(user);
+//
+//                userFound.setId(user.getId());
+//                userFound.setNom(user.getNom());
+//                userFound.setPrenom(user.getPrenom());
+//            }
+//        }
+//
+//        GetUser gu = new GetUser();
+//        gu.execute();
+//    }
 
 
 }

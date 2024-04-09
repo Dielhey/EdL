@@ -11,5 +11,6 @@
     <color name="light_gray">#FFDDDDDD</color>
     <color name="navBar">#782B14</color>
     <color name="buttons">#212A5A</color>
+    <color name="buttonPressed">#D33605</color>
     <color name="red">#FF0000</color>
 </resources>

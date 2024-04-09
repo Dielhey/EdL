@@ -13,6 +13,8 @@ public class Operation {
         this.operator = operator;
         calculate();
     }
+
+    // Créé la bonne réponse selon l'opérande
     private void calculate() {
         switch (operator) {
             case '+': this.answer = num1 + num2;break;

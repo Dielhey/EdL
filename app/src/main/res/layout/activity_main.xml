@@ -55,6 +55,8 @@
         android:id="@+id/lvLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:divider="@color/navBar"
+        android:dividerHeight="2dp"
         />
 
 

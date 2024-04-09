@@ -12,6 +12,9 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".Culture.data.CultureQuizActivity"
+            android:exported="false" />
+        <activity
             android:name=".EdLActivity"
             android:exported="false" />
         <activity
@@ -31,8 +34,7 @@
             android:exported="false" />
         <activity android:name=".Maths.MathsActivity" />
         <activity android:name=".Maths.MathsQuizActivity" />
-        <activity android:name=".Maths.ErreurActivity" />
-        <activity android:name=".Maths.FelicitationActivity" />
+        <activity android:name=".FelicitationActivity" />
     </application>
 
 </manifest>

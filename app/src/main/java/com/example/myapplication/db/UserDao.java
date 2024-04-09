@@ -18,6 +18,10 @@ public interface UserDao {
     @Query("SELECT * FROM users WHERE id = :id LIMIT 1")
     User getById(long id);
 
+    // Regarde si un utilisateur n'existe pas déjà
+    @Query("SELECT * FROM users WHERE nom = :nom AND prenom = :prenom LIMIT 1")
+    User getDuplicate(String nom, String prenom);
+
     @Insert
     long insert(User user);
 

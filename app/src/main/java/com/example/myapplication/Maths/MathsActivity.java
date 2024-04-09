@@ -16,37 +16,38 @@ import com.example.myapplication.R;
 
 public class MathsActivity extends EdLActivity {
 
-
+    // Keys
     public static final String OPERATOR_KEY = "operator_key";
 
+    // Data
     private int tableNumber;
+
+    // Views
     private Button btnLv1, btnLv2, btnLv3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // On charge le XML pour créer l'arbre graphique
         setContentView(R.layout.activity_maths);
+
         btnLv1 = findViewById(R.id.btnLv1);
         btnLv2 = findViewById(R.id.btnLv2);
         btnLv3 = findViewById(R.id.btnLv3);
+
+        // La redirection de la page sera toujours la même, il suffira de charger la difficulté plus tard
         Intent intent  = new Intent(MathsActivity.this, MathsQuizActivity.class);
         intent.putExtra(MathsQuizActivity.OPERATOR_KEY, getIntent().getCharExtra(OPERATOR_KEY, '+'));
         ActivityResultLauncher<Intent> tableMultiplication = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
-                new ActivityResultCallback<ActivityResult>() {
-                    @Override
-                    public void onActivityResult(ActivityResult result) {
-                        String message;
-                        if (result.getResultCode() == Activity.RESULT_OK) {
-                            message = "Changement de table";
-                        }
-                        else {
-                            message = "Bouton back";
-                        }
-                        Toast.makeText(MathsActivity.this, message, Toast.LENGTH_SHORT).show();
+                result -> {
+                    String message;
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        message = "Changement de table";
                     }
+                    else {
+                        message = "Bouton back";
+                    }
+                    Toast.makeText(MathsActivity.this, message, Toast.LENGTH_SHORT).show();
                 }
         );
         btnLv1.setOnClickListener(view -> {

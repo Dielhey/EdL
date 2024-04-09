@@ -5,55 +5,64 @@
     android:orientation="vertical"
     android:windowSoftInputMode="stateVisible"
    >
-    <TextView
-        android:id="@+id/tvNb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/question_nb"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:layout_marginTop="15sp"
-        />
+
+    <include layout="@layout/template_nav_bar"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:id="@+id/multiplications"
-        android:layout_height="400sp"
+        android:layout_height="0dip"
+        android:layout_weight="1"
         android:orientation="vertical"
         android:gravity="center"
         >
+        <TextView
+            android:id="@+id/tvNb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/question_nb"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:layout_marginTop="15sp"
+            />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/multiplications"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity=""
+            >
+            <Button
+                android:id="@+id/btnPrevious"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:text="@string/previous"
+                android:backgroundTint="@color/gray"
+                android:layout_margin="20dp"
+            />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                android:backgroundTint="@color/gray"
+                android:layout_margin="20dp"
+                 />
+        </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity=""
-        >
-        <Button
-            android:id="@+id/btnPrevious"
-            android:layout_width="150sp"
-            android:layout_height="wrap_content"
-            android:text="@string/previous"
-            android:backgroundTint="@color/gray"
-            android:layout_margin="20dp"
-        />
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/btnNext"
-            android:layout_width="150sp"
-            android:layout_height="wrap_content"
-            android:text="@string/next"
-            android:backgroundTint="@color/gray"
-            android:layout_margin="20dp"
-             /></LinearLayout>
-
-
-
 
 
 </LinearLayout>

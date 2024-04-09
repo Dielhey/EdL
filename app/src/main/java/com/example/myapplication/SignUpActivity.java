@@ -15,8 +15,11 @@ import com.example.myapplication.db.User;
 public class SignUpActivity extends EdLActivity {
 
 
+    // Data
     private String prenom, nom;
      private DatabaseClient mDb;
+
+     // Views
      private EditText inputPrenom, inputNom;
      private Button btnAddUser;
     @Override
@@ -27,6 +30,7 @@ public class SignUpActivity extends EdLActivity {
         inputNom = findViewById(R.id.inputNom);
         inputPrenom = findViewById(R.id.inputPrenom);
         btnAddUser = findViewById(R.id.btnAddUser);
+        // Confirmation du formulaire
         btnAddUser.setOnClickListener(view -> {
             prenom = inputPrenom.getText().toString();
             nom = inputNom.getText().toString();
@@ -36,8 +40,11 @@ public class SignUpActivity extends EdLActivity {
 
     public void saveUser() {
         class SaveUser extends AsyncTask<Void, Void, User> {
+            // Gère les erreurs de formulaire et rajoute l'utilisateur
             @Override
             protected User doInBackground(Void... voids) {
+
+
                 if(nom.equals("") && prenom.equals("")) {
                     return null;
                 }
@@ -46,15 +53,26 @@ public class SignUpActivity extends EdLActivity {
                 user.setNom(nom);
                 user.setPrenom(prenom);
 
+                User duplicate = mDb.getAppDatabase().userDao().getDuplicate(user.getNom(), user.getPrenom());
+                if (duplicate != null) {
+                    return null;
+                }
+
                 long id = mDb.getAppDatabase().userDao().insert(user);
                 user.setId(id);
                 return user;
             }
+
+            // Gestion des erreurs et bon affichage d=sur l'application selon le retour
             @Override
             protected void onPostExecute(User user) {
                 super.onPostExecute(user);
-                if (user == null) {
+                if(nom.equals("") && prenom.equals("")) {
                     Toast.makeText(SignUpActivity.this, "Vous devez écrire un nom et prénom !", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (user == null) {
+                    Toast.makeText(SignUpActivity.this, "Cet utilisateur existe déjà !", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 setLoginId(user.getId());

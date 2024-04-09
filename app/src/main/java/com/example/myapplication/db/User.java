@@ -5,6 +5,10 @@ import androidx.room.PrimaryKey;
 
 import java.util.Locale;
 
+/**
+ * Classe pour la base de données d'un utilisateur.
+ * Contient son nom, son prénom, un id auto-incrémenté, et une méthode toString pour un affichage clair de l'utilisateur.
+ */
 @Entity (tableName = "users")
 public class User {
 
@@ -32,6 +36,7 @@ public class User {
                 this.id = id;
         }
 
+        // Permet d'avoir un joli affichage du prénom
         private String toCapital(String text) {
                 return text.substring(0,1).toUpperCase() + text.substring(1).toLowerCase();
         }

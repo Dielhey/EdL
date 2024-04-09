@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Culture.data.CultureQuizActivity">
+
+    <include layout="@layout/template_nav_bar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:text="Contrôle de grammaire"
+            android:layout_weight="0.1"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_marginBottom="30dp"
+            />
+
+        <ListView
+            android:id="@+id/lvQuiz"
+            android:layout_width="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:divider="@color/navBar"
+            android:dividerHeight="5dp"
+            />
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="0.1"
+            android:layout_gravity="center"
+            android:text="Valider"
+            android:backgroundTint="@color/buttons"
+            />
+    </LinearLayout>
+
+</LinearLayout>

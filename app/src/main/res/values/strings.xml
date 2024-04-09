@@ -19,8 +19,9 @@
     <string name="title_substraction">Exercice de soustraction</string>
     <string name="title_addition">Exercice d\'addition</string>
     <string name="title_multiplication">Exercice de multiplication</string>
-    <string name="level_1">Niveau 1</string>
-    <string name="level_2">Niveau 2</string>
-    <string name="level_3">Niveau 3</string>
+    <string name="level_1">CP</string>
+    <string name="level_2">CE1/CE2</string>
+    <string name="level_3">CM1/CM2</string>
     <string name="loginMain">Se connecter</string>
+    <string name="title_grammaire">Exercice de grammaire</string>
 </resources>

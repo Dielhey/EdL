@@ -14,6 +14,10 @@ import android.widget.Toast;
 import com.example.myapplication.db.DatabaseClient;
 import com.example.myapplication.db.User;
 
+
+/**
+ * Activité général, gère les préférences et la barre de navigation
+ */
 public class EdLActivity extends AppCompatActivity {
 
     private DatabaseClient mDb;
@@ -47,6 +51,7 @@ public class EdLActivity extends AppCompatActivity {
         editor.apply();
     }
 
+    // Affiche le nom dans la barre de navigation
     private void refreshLogin() {
         TextView loginView = findViewById(R.id.login);
 
@@ -54,6 +59,7 @@ public class EdLActivity extends AppCompatActivity {
             return;
         }
         long id = getLoginId();
+        // Le login est automatiquement mis à -1 pour les invités
         if(id == -1) {
             loginView.setText("Invité");
             return;
@@ -63,6 +69,7 @@ public class EdLActivity extends AppCompatActivity {
 
     }
 
+    // Permet de revenir à l'accueil
     public void goHome() {
         TextView tvHome = findViewById(R.id.tvGoHome);
         if (tvHome == null) {
@@ -74,6 +81,7 @@ public class EdLActivity extends AppCompatActivity {
         });
     }
 
+    // Obtient l'utilisateur connecté
     private void getLogin(long id, User userFound, TextView loginView) {
         class GetUser extends AsyncTask<Void, Void, User> {
 

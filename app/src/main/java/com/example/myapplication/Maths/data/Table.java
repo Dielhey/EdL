@@ -26,6 +26,7 @@ public class Table {
         generateTable();
     }
 
+    // Génère les 20 opérations
     private void generateTable() {
         Random random = new Random();
         for (int i = 0; i < 20; i++) {
@@ -34,17 +35,15 @@ public class Table {
         }
     }
 
+    // Regarde le nombre de bonnes réponses
     public void verifyAnswers() {
         this.correctAnswers = 0;
         for (int i = 0; i < operations.size(); i++) {
             if(answers.get(i).getText().toString().equals("")) {
                 continue;
             }
-            System.out.println("answer : " + Integer.parseInt(answers.get(i).getText().toString()));
-            System.out.println("réponse : " + operations.get(i).getAnswer());
             if(Integer.parseInt(answers.get(i).getText().toString()) == operations.get(i).getAnswer()) {
                 correctAnswers++;
-                System.out.println(correctAnswers);
             }
         }
     }
@@ -62,9 +61,6 @@ public class Table {
         return answers;
     }
 
-    public int getTableSize(){
-        return tableSize;
-    }
 }
 
 

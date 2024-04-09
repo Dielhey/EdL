@@ -15,6 +15,9 @@ import com.google.android.material.card.MaterialCardView;
 
 import java.util.List;
 
+/**
+ * Un adapter pour les utilisateurs
+ */
 public class MainAdapter extends ArrayAdapter<User> {
 
     private SharedPreferences prefs;
@@ -32,10 +35,11 @@ public class MainAdapter extends ArrayAdapter<User> {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View rowView = inflater.inflate(R.layout.template_main, parent, false);
 
-        TextView tvUser = (TextView) rowView.findViewById(R.id.tvUser);
+        TextView tvUser = rowView.findViewById(R.id.tvUser);
         tvUser.setText(user.toString());
 
         MaterialCardView cardLogin = rowView.findViewById(R.id.cardLogin);
+        // Affichage plus joli du clic avec l'événement ici
         cardLogin.setOnClickListener(v -> {
             SharedPreferences.Editor editor = prefs.edit();
             editor.putLong(getContext().getString(R.string.login_id_key), user.getId());
